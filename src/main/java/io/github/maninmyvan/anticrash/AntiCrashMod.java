@@ -15,7 +15,6 @@ import static org.apache.logging.log4j.LogManager.getLogger;
 
 @Mod(modid = AntiCrashMod.MODID, name = AntiCrashMod.NAME, version = AntiCrashMod.VERSION)
 public class AntiCrashMod {
-    public static final Minecraft mc = Minecraft.getMinecraft();
     private static final Logger logger = getLogger("AntiCrash");
 
     public static final String MODID = "@ID@";

@@ -32,11 +32,7 @@ public abstract class MixinStateImplementation {
         if (!property.getAllowedValues().contains(value) && !property.getAllowedValues().isEmpty()) {
             IllegalArgumentException exception = new IllegalArgumentException("Cannot set property " + property + " to " + value + " on block " + Block.blockRegistry.getNameForObject(this.block) + ", it is not an allowed value");
             AntiCrashMod.warn("Prevented Crash", exception);
-
-            for (T allowedValue: property.getAllowedValues()) {
-                cir.setReturnValue(withProperty(property, (V) allowedValue));
-                return;
-            }
+            cir.setReturnValue(withProperty(property, (V) property.getAllowedValues().iterator().next()));
         }
     }
 }
