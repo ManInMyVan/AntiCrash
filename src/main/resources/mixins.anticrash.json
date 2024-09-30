@@ -1,0 +1,9 @@
+{
+  "compatibilityLevel": "JAVA_8",
+  "minVersion": "0.7",
+  "package": "io.github.maninmyvan.anticrash.mixin",
+  "refmap": "mixins.anticrash.refmap.json",
+  "client": [
+    "MixinStateImplementation"
+  ]
+}
