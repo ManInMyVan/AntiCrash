@@ -1,10 +1,6 @@
 package io.github.maninmyvan.anticrash;
 
 import io.github.maninmyvan.anticrash.config.AntiCrashConfig;
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-import net.minecraft.network.play.client.C10PacketCreativeInventoryAction;
-import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
