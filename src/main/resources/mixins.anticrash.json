@@ -4,6 +4,7 @@
   "package": "io.github.maninmyvan.anticrash.mixin",
   "refmap": "mixins.anticrash.refmap.json",
   "client": [
-    "MixinStateImplementation"
+    "MixinStateImplementation",
+    "MixinGameProfile"
   ]
 }
