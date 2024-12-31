@@ -14,10 +14,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(StateImplementation.class)
-public abstract class MixinStateImplementation {
+public class MixinStateImplementation {
     @Shadow @Final private ImmutableMap<IProperty<?>, Comparable<?>> properties;
     @Shadow @Final private Block block;
-    @Shadow public abstract <T extends Comparable<T>, V extends T> IBlockState withProperty(IProperty<T> property, V value);
+    @Shadow public native <T extends Comparable<T>, V extends T> IBlockState withProperty(IProperty<T> property, V value);
 
     @SuppressWarnings("unchecked")
     @Inject(method = "withProperty", at = @At(value = "HEAD"), cancellable = true)
