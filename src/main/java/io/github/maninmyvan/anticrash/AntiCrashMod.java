@@ -21,9 +21,9 @@ public class AntiCrashMod {
     public static AntiCrashMod INSTANCE;
     public static AntiCrashConfig config;
 
-    public static void warn(String message, Throwable t) {
+    public static void warn(Throwable t) {
         if (AntiCrashConfig.warn) {
-            logger.warn(message, t);
+            logger.warn("Prevented Crash", t);
         }
     }
 
