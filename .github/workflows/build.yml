@@ -48,5 +48,5 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4.5.0
         with:
-          path: build/libs/*
+          path: versions/1.8.9/build/libs/*
           if-no-files-found: error
