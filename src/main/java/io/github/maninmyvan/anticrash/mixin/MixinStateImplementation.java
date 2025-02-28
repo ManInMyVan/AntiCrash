@@ -23,13 +23,13 @@ public class MixinStateImplementation {
     @Inject(method = "withProperty", at = @At(value = "HEAD"), cancellable = true)
     private <T extends Comparable<T>, V extends T> void invalidPropertyPatch(IProperty<T> property, V value, CallbackInfoReturnable<IBlockState> cir) {
         if (!this.properties.containsKey(property)) {
-            AntiCrashMod.warn(new IllegalArgumentException("Cannot set property " + property + " as it does not exist in " + this.block.getBlockState()));
+            AntiCrashMod.stacktrace(new IllegalArgumentException("Cannot set property " + property + " as it does not exist in " + this.block.getBlockState()));
             cir.setReturnValue((StateImplementation) (Object) this);
             return;
         }
 
         if (!property.getAllowedValues().contains(value) && !property.getAllowedValues().isEmpty()) {
-            AntiCrashMod.warn(new IllegalArgumentException("Cannot set property " + property + " to " + value + " on block " + Block.blockRegistry.getNameForObject(this.block) + ", it is not an allowed value"));
+            AntiCrashMod.stacktrace(new IllegalArgumentException("Cannot set property " + property + " to " + value + " on block " + Block.blockRegistry.getNameForObject(this.block) + ", it is not an allowed value"));
             cir.setReturnValue(withProperty(property, (V) property.getAllowedValues().iterator().next()));
         }
     }

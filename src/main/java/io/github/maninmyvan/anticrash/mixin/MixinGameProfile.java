@@ -12,7 +12,7 @@ public class MixinGameProfile {
     @Redirect(method = "<init>", at = @At(value = "INVOKE", target = "Lorg/apache/commons/lang3/StringUtils;isBlank(Ljava/lang/CharSequence;)Z", ordinal = 0))
     private boolean fixCrash(CharSequence strLen) {
         if (StringUtils.isBlank(strLen)) {
-            AntiCrashMod.warn(new IllegalArgumentException("Name and ID cannot both be blank"));
+            AntiCrashMod.stacktrace(new IllegalArgumentException("Name and ID cannot both be blank"));
         }
         return false;
     }
