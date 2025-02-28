@@ -23,7 +23,7 @@ public class AntiCrashMod {
 
     public static void stacktrace(Throwable t) {
         if (AntiCrashConfig.stacktraces) {
-            logger.warn("Prevented Crash", t);
+            logger.warn(t);
         }
     }
 

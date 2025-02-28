@@ -14,6 +14,7 @@ public class MixinGameProfile {
         if (StringUtils.isBlank(strLen)) {
             AntiCrashMod.stacktrace(new IllegalArgumentException("Name and ID cannot both be blank"));
         }
+
         return false;
     }
 }
