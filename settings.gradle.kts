@@ -1,24 +1,24 @@
-@file:Suppress("PropertyName")
-
 pluginManagement {
     repositories {
-        gradlePluginPortal()
         mavenCentral()
+        gradlePluginPortal()
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
+        maven("https://maven.architectury.dev/")
+        maven("https://maven.fabricmc.net")
+        maven("https://maven.minecraftforge.net/")
+        maven("https://repo.spongepowered.org/maven/")
+        maven("https://repo.essential.gg/repository/maven-releases/")
         maven("https://repo.polyfrost.org/releases")
     }
-    plugins {
-        val pgtVersion = "0.6.5"
-        id("org.polyfrost.multi-version.root") version pgtVersion
+    resolutionStrategy {
+        eachPlugin {
+            when (requested.id.id) {
+                "gg.essential.loom" -> useModule("gg.essential:architectury-loom:${requested.version}")
+            }
+        }
     }
 }
 
-val mod_name: String by settings
+rootProject.name = "AntiCrash"
 
-rootProject.name = mod_name
-rootProject.buildFileName = "root.gradle.kts"
-
-include(":1.8.9-forge")
-project(":1.8.9-forge").apply {
-    projectDir = file("versions/1.8.9-forge")
-    buildFileName = "../../build.gradle.kts"
-}
+include("1.8.9-forge")
