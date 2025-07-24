@@ -67,7 +67,8 @@ tasks.withType<org.gradle.jvm.tasks.Jar>().configureEach {
     archiveClassifier.set("")
     archiveBaseName.set(modid)
     archiveAppendix.set(project.name)
-    exclude("META-INF/versions/**")
+    exclude("LICENSE.txt")
+    exclude("org/spongepowered/asm/**/package.html")
 }
 
 tasks.jar {
@@ -82,14 +83,18 @@ tasks.jar {
     }
 }
 
-tasks.shadowJar {
-    dependsOn(tasks.jar)
-    configurations = project.configurations.shadow.map { listOf(it) }.get()
-}
-
 tasks.remapJar {
-    dependsOn(tasks.shadowJar)
-    inputFile.set(tasks.shadowJar.get().archiveFile)
+    dependsOn(tasks.jar)
+    archiveClassifier.set("lite")
+    inputFile.set(tasks.jar.get().archiveFile)
 }
 
-tasks.assemble.get().dependsOn(tasks.remapJar)
+tasks.shadowJar {
+    dependsOn(tasks.remapJar)
+    archiveClassifier.set("")
+    configurations = project.configurations.shadow.map { listOf(it) }.get()
+
+    from(zipTree(tasks.remapJar.get().archiveFile))
+}
+
+tasks.assemble.get().dependsOn(tasks.shadowJar)
