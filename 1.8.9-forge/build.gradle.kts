@@ -53,6 +53,13 @@ tasks.compileJava {
 }
 
 tasks.processResources {
+    inputs.property("id", modid)
+    inputs.property("name", rootProject.name)
+    inputs.property("version", version)
+    inputs.property("mcversion", minecraftVersion)
+    filesMatching(listOf("mcmod.info", "mixins.${modid}.json")) {
+        expand(inputs.properties)
+    }
     rename("${modid}_at.cfg", "META-INF/${modid}_at.cfg")
 }
 
