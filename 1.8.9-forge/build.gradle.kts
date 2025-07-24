@@ -73,7 +73,6 @@ tasks.withType<org.gradle.jvm.tasks.Jar>().configureEach {
 
 tasks.jar {
     manifest.attributes.run {
-        this["FMLCorePluginContainsFMLMod"] = "true"
         this["ForceLoadAsMod"] = "true"
 
         this["TweakClass"] = "org.spongepowered.asm.launch.MixinTweaker"
