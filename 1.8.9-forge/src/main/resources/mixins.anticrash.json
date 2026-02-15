@@ -3,8 +3,9 @@
   "minVersion": "0.7",
   "package": "io.github.maninmyvan.anticrash.mixin",
   "refmap": "mixins.anticrash.refmap.json",
-  "client": [
-    "MixinStateImplementation",
-    "MixinGameProfile"
+  "mixins": [
+    "MixinBlockFire",
+    "MixinGameProfile",
+    "MixinStateImplementation"
   ]
 }
