@@ -16,8 +16,9 @@ public class MixinStateImplementation {
     @Shadow @Final private ImmutableMap<IProperty<?>, Comparable<?>> properties;
     @Shadow public native <T extends Comparable<T>, V extends T> IBlockState withProperty(IProperty<T> property, V value);
 
+    // https://bugs.mojang.com/browse/MC/issues/MC-82677
     @Inject(method = "withProperty", at = @At(value = "HEAD"), cancellable = true)
-    private <T extends Comparable<T>, V extends T> void invalidPropertyPatch(IProperty<T> property, V value, CallbackInfoReturnable<IBlockState> cir) {
+    private <T extends Comparable<T>, V extends T> void fixMC82677(IProperty<T> property, V value, CallbackInfoReturnable<IBlockState> cir) {
         if (!this.properties.containsKey(property)) {
             cir.setReturnValue((StateImplementation) (Object) this);
             return;

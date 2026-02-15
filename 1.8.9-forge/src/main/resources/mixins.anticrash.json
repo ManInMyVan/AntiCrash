@@ -7,8 +7,8 @@
     "MixinBlock",
     "MixinBlockBanner",
     "MixinBlockFire",
+    "MixinBlockRedstoneOre",
     "MixinGameProfile",
-    "MixinItem",
     "MixinStateImplementation"
   ]
 }
