@@ -82,18 +82,16 @@ tasks.jar {
     }
 }
 
-tasks.remapJar {
-    dependsOn(tasks.jar)
-    archiveClassifier.set("lite")
-    inputFile.set(tasks.jar.get().archiveFile)
-}
-
 tasks.shadowJar {
-    dependsOn(tasks.remapJar)
+    dependsOn(tasks.jar)
     archiveClassifier.set("")
     configurations = project.configurations.shadow.map { listOf(it) }.get()
-
-    from(zipTree(tasks.remapJar.get().archiveFile))
 }
 
-tasks.assemble.get().dependsOn(tasks.shadowJar)
+tasks.remapJar {
+    dependsOn(tasks.shadowJar)
+    archiveClassifier.set("")
+    inputFile.set(tasks.shadowJar.get().archiveFile)
+}
+
+tasks.assemble.get().dependsOn(tasks.remapJar)
