@@ -4,8 +4,11 @@
   "package": "io.github.maninmyvan.anticrash.mixin",
   "refmap": "mixins.anticrash.refmap.json",
   "mixins": [
+    "MixinBlock",
+    "MixinBlockBanner",
     "MixinBlockFire",
     "MixinGameProfile",
+    "MixinItem",
     "MixinStateImplementation"
   ]
 }
