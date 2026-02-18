@@ -5,7 +5,10 @@
   "refmap": "mixins.anticrash.refmap.json",
   "mixins": [
     "MixinBlock",
+    "MixinBlockAnvil",
     "MixinBlockBanner",
+    "MixinBlockBrewingStand",
+    "MixinBlockChest",
     "MixinBlockFire",
     "MixinBlockRedstoneOre",
     "MixinGameProfile",

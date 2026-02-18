@@ -2,17 +2,10 @@
   {
     "modid": "${id}",
     "name": "${name}",
-    "description": "",
     "version": "${version}",
     "mcversion": "${mcversion}",
-    "url": "",
-    "updateUrl": "",
     "authorList": [
       "ManInMyVan"
-    ],
-    "credits": "",
-    "logoFile": "",
-    "screenshots": [],
-    "dependencies": []
+    ]
   }
 ]
