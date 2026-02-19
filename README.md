@@ -10,7 +10,8 @@ https://bugs.mojang.com/browse/MC/issues/MC-82677 \
 https://bugs.mojang.com/browse/MC/issues/MC-85109 \
 invalid GameProfiles causing the game to crash\
 Forge allowing cactus and mushrooms to be placed on the wrong blocks\
-Chest/Anvil collision boxes being based on the one you last looked at (Optionally)
+Chest/Anvil collision boxes being based on the one you last looked at (Optionally)\
+Various potential crashes with packets sent by the server
 
 ## Download
 

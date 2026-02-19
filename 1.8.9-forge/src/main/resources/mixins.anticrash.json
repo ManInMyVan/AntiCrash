@@ -13,5 +13,8 @@
     "MixinBlockRedstoneOre",
     "MixinGameProfile",
     "MixinStateImplementation"
+  ],
+  "client": [
+    "MixinNetHandlerPlayClient"
   ]
 }

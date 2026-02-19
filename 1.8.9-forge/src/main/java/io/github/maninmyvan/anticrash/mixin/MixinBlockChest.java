@@ -1,7 +1,6 @@
 package io.github.maninmyvan.anticrash.mixin;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockAnvil;
 import net.minecraft.block.BlockChest;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
