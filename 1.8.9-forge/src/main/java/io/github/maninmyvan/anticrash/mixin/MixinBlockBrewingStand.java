@@ -13,7 +13,7 @@ public abstract class MixinBlockBrewingStand {
     public abstract void setBlockBoundsForItemRender();
 
     // https://bugs.mojang.com/browse/MC-85109
-    @Inject(method = "<init>", at = @At("TAIL"))
+    @Inject(method = "<init>", at = @At("RETURN"))
     private void fixMC85109(CallbackInfo ci) {
         this.setBlockBoundsForItemRender();
     }
